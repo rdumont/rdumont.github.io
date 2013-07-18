@@ -1,0 +1,342 @@
+@font-face {
+	font-family: 'social';
+	src:url('/assets/fonts/social.eot');
+	src:url('/assets/fonts/social.eot?#iefix') format('embedded-opentype'),
+		url('/assets/fonts/social.woff') format('woff'),
+		url('/assets/fonts/social.ttf') format('truetype'),
+		url('/assets/fonts/social.svg#social') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'social';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-lastfm, .icon-lastfm-2, .icon-facebook, .icon-facebook-2, .icon-facebook-3, .icon-github, .icon-github-2, .icon-github-3, .icon-github-4, .icon-github-5, .icon-linkedin, .icon-google, .icon-mail, .icon-mail-2, .icon-mail-3, .icon-mail-4, .icon-share, .icon-google-plus, .icon-google-plus-2, .icon-google-plus-3, .icon-google-plus-4, .icon-google-drive, .icon-instagram, .icon-twitter, .icon-twitter-2, .icon-twitter-3, .icon-feed, .icon-feed-2, .icon-feed-3, .icon-vimeo, .icon-vimeo2, .icon-vimeo-2, .icon-youtube, .icon-youtube-2, .icon-steam, .icon-steam-2, .icon-android, .icon-windows, .icon-windows8, .icon-skype, .icon-reddit, .icon-delicious, .icon-stumbleupon, .icon-stumbleupon-2, .icon-stackoverflow, .icon-pinterest, .icon-pinterest-2, .icon-xing, .icon-xing-2, .icon-flattr, .icon-foursquare, .icon-foursquare-2, .icon-lanyrd, .icon-flickr, .icon-flickr-2, .icon-flickr-3, .icon-flickr-4, .icon-picassa, .icon-picassa-2, .icon-dribbble, .icon-dribbble-2, .icon-dribbble-3, .icon-forrst, .icon-forrst-2, .icon-deviantart, .icon-deviantart-2, .icon-wordpress, .icon-wordpress-2, .icon-joomla, .icon-blogger, .icon-blogger-2, .icon-tumblr, .icon-tumblr-2, .icon-yahoo, .icon-tux, .icon-apple, .icon-finder, .icon-soundcloud, .icon-soundcloud-2, .icon-paypal, .icon-paypal-2, .icon-paypal-3, .icon-yelp, .icon-libreoffice, .icon-file-pdf, .icon-file-openoffice, .icon-file-word, .icon-file-excel, .icon-file-zip, .icon-file-powerpoint, .icon-file-xml, .icon-file-css, .icon-html5, .icon-html5-2, .icon-css3, .icon-chrome, .icon-firefox, .icon-IE, .icon-opera, .icon-safari, .icon-IcoMoon {
+	font-family: 'social';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-lastfm:before {
+	content: "\e000";
+}
+.icon-lastfm-2:before {
+	content: "\e001";
+}
+.icon-facebook:before {
+	content: "\e002";
+}
+.icon-facebook-2:before {
+	content: "\e003";
+}
+.icon-facebook-3:before {
+	content: "\e004";
+}
+.icon-github:before {
+	content: "\e005";
+}
+.icon-github-2:before {
+	content: "\e006";
+}
+.icon-github-3:before {
+	content: "\e007";
+}
+.icon-github-4:before {
+	content: "\e008";
+}
+.icon-github-5:before {
+	content: "\e009";
+}
+.icon-linkedin:before {
+	content: "\e00a";
+}
+.icon-google:before {
+	content: "\e00b";
+}
+.icon-mail:before {
+	content: "\e00c";
+}
+.icon-mail-2:before {
+	content: "\e00d";
+}
+.icon-mail-3:before {
+	content: "\e00e";
+}
+.icon-mail-4:before {
+	content: "\e00f";
+}
+.icon-share:before {
+	content: "\e010";
+}
+.icon-google-plus:before {
+	content: "\e011";
+}
+.icon-google-plus-2:before {
+	content: "\e012";
+}
+.icon-google-plus-3:before {
+	content: "\e013";
+}
+.icon-google-plus-4:before {
+	content: "\e014";
+}
+.icon-google-drive:before {
+	content: "\e015";
+}
+.icon-instagram:before {
+	content: "\e016";
+}
+.icon-twitter:before {
+	content: "\e017";
+}
+.icon-twitter-2:before {
+	content: "\e018";
+}
+.icon-twitter-3:before {
+	content: "\e019";
+}
+.icon-feed:before {
+	content: "\e01a";
+}
+.icon-feed-2:before {
+	content: "\e01b";
+}
+.icon-feed-3:before {
+	content: "\e01c";
+}
+.icon-vimeo:before {
+	content: "\e01d";
+}
+.icon-vimeo2:before {
+	content: "\e01e";
+}
+.icon-vimeo-2:before {
+	content: "\e01f";
+}
+.icon-youtube:before {
+	content: "\e020";
+}
+.icon-youtube-2:before {
+	content: "\e021";
+}
+.icon-steam:before {
+	content: "\e022";
+}
+.icon-steam-2:before {
+	content: "\e023";
+}
+.icon-android:before {
+	content: "\e024";
+}
+.icon-windows:before {
+	content: "\e025";
+}
+.icon-windows8:before {
+	content: "\e026";
+}
+.icon-skype:before {
+	content: "\e027";
+}
+.icon-reddit:before {
+	content: "\e028";
+}
+.icon-delicious:before {
+	content: "\e029";
+}
+.icon-stumbleupon:before {
+	content: "\e02a";
+}
+.icon-stumbleupon-2:before {
+	content: "\e02b";
+}
+.icon-stackoverflow:before {
+	content: "\e02c";
+}
+.icon-pinterest:before {
+	content: "\e02d";
+}
+.icon-pinterest-2:before {
+	content: "\e02e";
+}
+.icon-xing:before {
+	content: "\e02f";
+}
+.icon-xing-2:before {
+	content: "\e030";
+}
+.icon-flattr:before {
+	content: "\e031";
+}
+.icon-foursquare:before {
+	content: "\e032";
+}
+.icon-foursquare-2:before {
+	content: "\e033";
+}
+.icon-lanyrd:before {
+	content: "\e034";
+}
+.icon-flickr:before {
+	content: "\e035";
+}
+.icon-flickr-2:before {
+	content: "\e036";
+}
+.icon-flickr-3:before {
+	content: "\e037";
+}
+.icon-flickr-4:before {
+	content: "\e038";
+}
+.icon-picassa:before {
+	content: "\e039";
+}
+.icon-picassa-2:before {
+	content: "\e03a";
+}
+.icon-dribbble:before {
+	content: "\e03b";
+}
+.icon-dribbble-2:before {
+	content: "\e03c";
+}
+.icon-dribbble-3:before {
+	content: "\e03d";
+}
+.icon-forrst:before {
+	content: "\e03e";
+}
+.icon-forrst-2:before {
+	content: "\e03f";
+}
+.icon-deviantart:before {
+	content: "\e040";
+}
+.icon-deviantart-2:before {
+	content: "\e041";
+}
+.icon-wordpress:before {
+	content: "\e042";
+}
+.icon-wordpress-2:before {
+	content: "\e043";
+}
+.icon-joomla:before {
+	content: "\e044";
+}
+.icon-blogger:before {
+	content: "\e045";
+}
+.icon-blogger-2:before {
+	content: "\e046";
+}
+.icon-tumblr:before {
+	content: "\e047";
+}
+.icon-tumblr-2:before {
+	content: "\e048";
+}
+.icon-yahoo:before {
+	content: "\e049";
+}
+.icon-tux:before {
+	content: "\e04a";
+}
+.icon-apple:before {
+	content: "\e04b";
+}
+.icon-finder:before {
+	content: "\e04c";
+}
+.icon-soundcloud:before {
+	content: "\e04d";
+}
+.icon-soundcloud-2:before {
+	content: "\e04e";
+}
+.icon-paypal:before {
+	content: "\e04f";
+}
+.icon-paypal-2:before {
+	content: "\e050";
+}
+.icon-paypal-3:before {
+	content: "\e051";
+}
+.icon-yelp:before {
+	content: "\e052";
+}
+.icon-libreoffice:before {
+	content: "\e053";
+}
+.icon-file-pdf:before {
+	content: "\e054";
+}
+.icon-file-openoffice:before {
+	content: "\e055";
+}
+.icon-file-word:before {
+	content: "\e056";
+}
+.icon-file-excel:before {
+	content: "\e057";
+}
+.icon-file-zip:before {
+	content: "\e058";
+}
+.icon-file-powerpoint:before {
+	content: "\e059";
+}
+.icon-file-xml:before {
+	content: "\e05a";
+}
+.icon-file-css:before {
+	content: "\e05b";
+}
+.icon-html5:before {
+	content: "\e05c";
+}
+.icon-html5-2:before {
+	content: "\e05d";
+}
+.icon-css3:before {
+	content: "\e05e";
+}
+.icon-chrome:before {
+	content: "\e05f";
+}
+.icon-firefox:before {
+	content: "\e060";
+}
+.icon-IE:before {
+	content: "\e061";
+}
+.icon-opera:before {
+	content: "\e062";
+}
+.icon-safari:before {
+	content: "\e063";
+}
+.icon-IcoMoon:before {
+	content: "\e064";
+}
