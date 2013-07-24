@@ -1,5 +1,6 @@
 name: Rodrigo Dumont
-markdown: redcarpet
+markdown: kramdown
+
 pygments: true
 safe: true
 timezone: America/Sao_Paulo

@@ -1,13 +1,35 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Home
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div id="home" class="centered ten columns">
+	<div class="row">
+		<p class="centered eight columns" id="home-description">
+			Hi there.
+			I'm a developer from <a href="http://en.wikipedia.org/wiki/Rio_de_Janeiro">Rio de Janeiro</a>.
+			I love <a href="https://github.com/rdumont">coding</a>
+			and sometimes <a href="https://twitter.com/rlsdumont">tweet</a> about stuff.
+			I also enjoy good <a href="https://last.fm/user/dddxbr">music</a>
+			and some quality <a href="https://untappd.com/user/rdumont">beer</a> on my spare time.
+			This is my blog.
+		</p>
+	</div>
+
+	<h2>Blog Posts</h2>
+	<ul class="posts">
+		{% for post in site.posts %}
+		<li class="post-listing">
+			<div class="post-listing-date">
+				<span class="post-date-day">{{ post.date | date:"%d" }}</span>
+				<span class="post-date-month">{{ post.date | date:"%b" }}</span>
+				<span class="post-date-year">{{ post.date | date:"%Y" }}</span>
+			</div>
+			<a href="{{ post.url }}" class="post-title">{{ post.title }}</a>
+			<p class="post-tags">{% for tag in post.tags %}
+				<span class="post-tag">#<span class="post-tag-name">{{ tag }}</span></span>{% endfor %}
+			</p>
+		</li>
+		{% endfor %}
+	</ul>
 </div>

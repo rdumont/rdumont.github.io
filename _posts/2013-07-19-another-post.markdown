@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2013-07-18 00:00:28
-tags: jekyll update
-summary: On how to get started with a Jekyll blog. The "do"s, "don't"s and everything else.
+title:  "Another Post"
+date:   2013-07-19 00:00:28
+tags:   update something
+summary: Just something else so I can see how summaries behave in my new layout.
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

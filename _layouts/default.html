@@ -3,45 +3,50 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
+        <title>
+          {% if page.title == 'Home' %}
+            Rodrigo Dumont
+          {% else %}
+            {{ page.title }} - Rodrigo Dumont
+          {% endif %}
+        </title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/assets/css/monokai.css">
+        <link rel="stylesheet" href="/assets/css/gumby.css">
+        <link rel="stylesheet" href="/assets/css/elusive-webfont.css">
+        <link rel="stylesheet" href="/assets/css/tomorrow.css">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/assets/css/main.css">
-        <link rel="stylesheet" href="/assets/css/icomoon.css">
 
     </head>
     <body>
-      <div class="topbar"></div>
+      <div class="topbar">
+      </div>
 
-        <div class="container">
-
-          <header>
-            <a class="avatar" href="/"><img src="http://www.gravatar.com/avatar/ec99b9b82a56c5abc8002999162c890f"></a>
-            <div class="title-box">
-              <a href="/" class="author-name">Rodrigo Dumont</a>
-              <nav class="main-links">
-                <a href="/about">{ about }</a>
-                <a href="https://github.com/rdumont" class="icon-github" target="_blank"></a>
-                <a href="https://linkedin.com/in/rlsdumont" class="icon-linkedin" target="_blank"></a>
-                <a href="https://twitter.com/rlsdumont" class="icon-twitter" target="_blank"></a>
-                <a href="https://last.fm/user/dddxbr" class="icon-lastfm" target="_blank"></a>
-                <a href="https://last.fm/user/dddxbr" class="icon-feed-3" target="_blank"></a>
-              </nav>
-            </div>
-          </header>
-
-          <hr>
-
-          {{ content }}
-
-          <footer>
-            
-          </footer>
+      <header class="row">
+        <div class="centered ten columns">
+          <a href="/" class="author-name">Rodrigo Dumont</a>
+          <a class="avatar" href="/"><img class="circle image" src="http://www.gravatar.com/avatar/ec99b9b82a56c5abc8002999162c890f" /></a>
+          <nav class="main-links">
+            <a href="/about">{ about }</a>
+            <a href="https://github.com/rdumont" target="_blank"><i class="icon-github"></i></a>
+            <a href="https://linkedin.com/in/rlsdumont" target="_blank"><i class="icon-linkedin"></i></a>
+            <a href="https://twitter.com/rlsdumont" target="_blank"><i class="icon-twitter"></i></a>
+            <a href="https://last.fm/user/dddxbr" target="_blank"><i class="icon-lastfm"></i></a>
+            <a href="https://last.fm/user/dddxbr" target="_blank"><i class="icon-rss"></i></a>
+          </nav>
         </div>
+      </header>
+
+      <div class="row">
+      {{ content }}
+      </div>
+
+      <footer class="row">
+        
+      </footer>
 
     </body>
 </html>
