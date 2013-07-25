@@ -20,7 +20,13 @@ title: Atom Feed
 		<link href="{{ site.production_url }}{{ post.url }}"/>
 		<updated>{{ post.date | date_to_xmlschema }}</updated>
 		<id>{{ site.production_url }}{{ post.url }}</id>
-		<content type="html">{{ post.content | excerpt }}</content>
+		<content type="html">
+			{% if post.content contains '<!--more-->' %}
+				{{ post.content | split:'<!--more-->' | first }}
+			{% else %}
+				{{ post.content }}
+			{% endif %}
+		</content>
 	</entry>
 	{% endfor %}
 </feed>
