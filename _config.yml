@@ -5,3 +5,12 @@ pygments: true
 safe: true
 timezone: America/Sao_Paulo
 permalink: pretty
+
+title: Rodrigo Dumont
+author:
+  name: Rodrigo Dumont
+  email: rlsdumont@gmail.com
+  github: rdumont
+  twitter: rlsdumont
+
+production_url: http://rodrigodumont.com
