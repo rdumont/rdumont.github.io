@@ -1,5 +1,5 @@
 @main-color: #e57d00;
-@secondary-color: ##428BCA;
+@secondary-color: #428BCA;
 @bold-color: #736458;
 
 .container-narrow {
@@ -9,8 +9,34 @@
 	padding-left: 15px;
 }
 
+a {
+	color: @secondary-color;
+	-webkit-transition: color .2s ease-in-out;
+	-moz-transition: color .2s ease-in-out;
+	-ms-transition: color .2s ease-in-out;
+	-o-transition: color .2s ease-in-out;
+	transition: color .2s ease-in-out;
+
+	&:hover {
+		color: @main-color;
+		text-decoration: none;
+	}
+}
+
 header.page-header {
 	border: none;
+}
+
+header #logo a {
+	-webkit-transition: opacity .2s ease-in-out;
+	-moz-transition: opacity .2s ease-in-out;
+	-ms-transition: opacity .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out;
+	transition: opacity .2s ease-in-out;
+
+	&:hover {
+		opacity: .7;
+	}
 }
 
 header nav {
@@ -22,7 +48,6 @@ header nav {
 			font-family: 'Economica', sans-serif;
 			font-weight: bold;
 			font-size: 22px;
-			color: @secondary-color;
 
 			&.current {
 				color: @main-color;
