@@ -1,10 +1,11 @@
 name: Rodrigo Dumont
-markdown: kramdown
 
 pygments: true
 safe: true
 timezone: America/Sao_Paulo
 permalink: pretty
+exclude:
+  - "*.less"
 
 title: Rodrigo Dumont
 author:
@@ -14,3 +15,12 @@ author:
   twitter: rlsdumont
 
 production_url: http://rodrigodumont.com
+
+navigation:
+  - text: Blog
+    url: /
+    group: post
+  - text: Work
+    url: /work/
+  - text: About
+    url: /about/

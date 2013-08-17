@@ -11,38 +11,53 @@
           {% endif %}
         </title>
         <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" type="image/png" href="/favicon.ico">
         <link type="application/atom+xml" rel="alternate" href="{{ site.production_url }}/feed/atom.xml"/>
 
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+
         <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/assets/css/gumby.css">
-        <link rel="stylesheet" href="/assets/css/elusive-webfont.css">
-        <link rel="stylesheet" href="/assets/css/tomorrow.css">
+        <link rel="stylesheet" href="/css/tomorrow.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/assets/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Economica:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/main.css">
 
     </head>
     <body>
-      <div class="topbar">
+
+      <div class="container-narrow">
+        <header class="page-header row">
+          <div class="col-xs-12">
+            <div id="logo" class="pull-left">
+              <img src="/images/logo.png" alt="Rodrigo Dumont">
+              <h1 class="hide">Rodrigo Dumont</h1>
+            </div>
+            <nav class="pull-right">
+              <ul class="list-inline text-right">
+                <li><a href="https://github.com/rdumont" class="social-icon"></a></li>
+                <li><a href="https://linkedin.com/in/rlsdumont" class="social-icon"></a></li>
+                <li><a href="https://twitter.com/rlsdumont" class="social-icon"></a></li>
+                <li><a href="{{ site.production_url }}/feed/atom.xml" class="social-icon"></a></li>
+              </ul>
+              <ul class="list-inline text-right">
+                {% for link in site.navigation %}
+                  {% assign current = nil %}
+                  {% if page.url == link.url or page.group == link.group %}
+                    {% assign current = 'current' %}
+                  {% endif %}
+
+                  <li><a href="{{ link.url }}" class="{{ current }}">{{ link.text }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </header>
       </div>
 
-      <header class="row">
-        <div class="centered ten columns">
-          <a href="/" class="author-name">Rodrigo Dumont</a>
-          <a class="avatar" href="/"><img class="circle image" src="http://www.gravatar.com/avatar/ec99b9b82a56c5abc8002999162c890f" /></a>
-          <nav class="main-links">
-            <a href="/about">{ about }</a>
-            <a href="https://github.com/rdumont" target="_blank"><i class="icon-github"></i></a>
-            <a href="https://linkedin.com/in/rlsdumont" target="_blank"><i class="icon-linkedin"></i></a>
-            <a href="https://twitter.com/rlsdumont" target="_blank"><i class="icon-twitter"></i></a>
-            <a href="https://last.fm/user/dddxbr" target="_blank"><i class="icon-lastfm"></i></a>
-            <a href="https://last.fm/user/dddxbr" target="_blank"><i class="icon-rss"></i></a>
-          </nav>
-        </div>
-      </header>
-
-      <div class="row">
-      {{ content }}
+      <div class="container-narrow">
+        {{ content }}
       </div>
 
       <footer class="row">

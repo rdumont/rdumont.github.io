@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Another Post"
+title:  "Some other title that is bigger"
 date:   2013-07-19 00:00:28
 tags:   update something
 summary: Just something else so I can see how summaries behave in my new layout.
