@@ -13,7 +13,16 @@ group: post
     		{{ content }}
     	</article>
 
-    	<hr>
+        <footer>
+            {% assign share_url = site.production_url | append: page.url %}
+            Share this on:
+            <a target="_blank" href="http://twitter.com/intent/tweet?url={{ share_url }}&text={{ page.title }}">Twitter</a>,
+            <a target="_blank" href="http://facebook.com/sharer.php?u={{ share_url }}">Facebook</a>,
+            <a target="_blank" href="https://plus.google.com/share?url={{ share_url }}">Google+</a>,
+            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url={{ share_url }}&title={{ page.title }}&source=Rodrigo Dumont">LinkedIn</a> or use the
+            <a href="{{ share_url }}">Permalink</a>
+        </footer>
+
     	<div id="disqus_thread"></div>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
