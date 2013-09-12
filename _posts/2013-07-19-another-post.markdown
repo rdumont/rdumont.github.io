@@ -35,6 +35,9 @@ print_hi('Tom')
 > <cite> Rodrigo Dumont [^1]</cite>
 
 
+![My Image](http://images4.fanpop.com/image/photos/22400000/Beautiful-Horse-horses-22410583-1280-800.jpg)
+
+
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
 
 [jekyll-gh]: https://github.com/mojombo/jekyll

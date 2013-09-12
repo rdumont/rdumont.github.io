@@ -25,6 +25,10 @@
 	}
 }
 
+body {
+	font-size: 15px;
+}
+
 a {
 	color: @secondary-color;
 	-webkit-transition: color .2s ease-in-out;
@@ -43,22 +47,29 @@ header.page-header {
 	border: none;
 }
 
-header #logo a {
-	.opacity-transition();
-}
+header {
+	h1#logo {
+		margin: 0;
+	}
 
-header nav {
-	ul {
-		margin-bottom: 0;
+	#logo a {
+		.opacity-transition();
+	}
 
-		li a {
-			text-transform: uppercase;
-			font-family: 'Economica', sans-serif;
-			font-weight: bold;
-			font-size: 22px;
+	nav {
+		ul {
+			margin-bottom: 0;
+			clear: both;
 
-			&.current {
-				color: @main-color;
+			li a {
+				text-transform: uppercase;
+				font-family: 'Economica', sans-serif;
+				font-weight: bold;
+				font-size: 22px;
+
+				&.current {
+					color: @main-color;
+				}
 			}
 		}
 	}
@@ -80,11 +91,11 @@ ul.social-icons {
 	}
 }
 
-.post {
+.post, .page {
 	header {
 		margin-bottom: 3em;
-
-		h1 {
+		
+		h2 {
 			font-family: 'Economica', sans-serif;
 			font-weight: bold;
 			text-transform: uppercase;
@@ -98,6 +109,21 @@ ul.social-icons {
 		}
 	}
 
+	h3 {
+		font-family: 'Economica', sans-serif;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 26px;
+		color: @bold-color;
+		text-align: center;
+	}
+
+	p {
+		margin-bottom: 1.2em;
+	}
+}
+
+.post {
 	footer {
 		background-color: @secondary-color;
 		background-image: url("../images/share.png");
@@ -115,5 +141,27 @@ ul.social-icons {
     			color: gold;
     		}
     	}
+	}
+}
+
+/***********/
+/** About **/
+/***********/
+.about.page {
+	.profile-links li {
+		margin-bottom: 5px;
+		padding: 0 3px;
+
+		a img {
+			width: 24px;
+			height: 24px;
+			border-radius: 5px;
+			vertical-align: bottom;
+		}
+	}
+
+	img#selfshot {
+		max-height: 170px;
+		border-radius: 15px;
 	}
 }

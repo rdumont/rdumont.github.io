@@ -1,9 +1,15 @@
 .container-narrow{margin:0 auto;max-width:940px;padding-right:15px;padding-left:15px}.container-narrow img{max-width:100%}
+body{font-size:15px}
 a{color:#428bca;-webkit-transition:color .2s ease-in-out;-moz-transition:color .2s ease-in-out;-ms-transition:color .2s ease-in-out;-o-transition:color .2s ease-in-out;transition:color .2s ease-in-out}a:hover{color:#e57d00;text-decoration:none}
 header.page-header{border:none}
+header h1#logo{margin:0}
 header #logo a{-webkit-transition:opacity .2s ease-in-out;-moz-transition:opacity .2s ease-in-out;-ms-transition:opacity .2s ease-in-out;-o-transition:opacity .2s ease-in-out;transition:opacity .2s ease-in-out}header #logo a:hover{opacity:.7}
-header nav ul{margin-bottom:0}header nav ul li a{text-transform:uppercase;font-family:'Economica',sans-serif;font-weight:bold;font-size:22px}header nav ul li a.current{color:#e57d00}
+header nav ul{margin-bottom:0;clear:both}header nav ul li a{text-transform:uppercase;font-family:'Economica',sans-serif;font-weight:bold;font-size:22px}header nav ul li a.current{color:#e57d00}
 ul.social-icons{float:right}ul.social-icons li{margin:0;padding:0;float:left;clear:none}ul.social-icons li a{padding:0 5px;-webkit-transition:opacity .2s ease-in-out;-moz-transition:opacity .2s ease-in-out;-ms-transition:opacity .2s ease-in-out;-o-transition:opacity .2s ease-in-out;transition:opacity .2s ease-in-out}ul.social-icons li a:hover{opacity:.7}
-.post header{margin-bottom:3em}.post header h1{font-family:'Economica',sans-serif;font-weight:bold;text-transform:uppercase;font-size:36px;color:#736458}
-.post header .meta{color:#8e908c;font-style:italic}
+.post header,.page header{margin-bottom:3em}.post header h2,.page header h2{font-family:'Economica',sans-serif;font-weight:bold;text-transform:uppercase;font-size:36px;color:#736458}
+.post header .meta,.page header .meta{color:#8e908c;font-style:italic}
+.post h3,.page h3{font-family:'Economica',sans-serif;font-weight:bold;text-transform:uppercase;font-size:26px;color:#736458;text-align:center}
+.post p,.page p{margin-bottom:1.2em}
 .post footer{background-color:#428bca;background-image:url("../images/share.png");background-origin:content-box;background-position:right center;background-repeat:no-repeat;color:#ccc;margin:3em 0;padding:10px}.post footer a{color:#fff}.post footer a:hover{color:#ffd700}
+.about.page .profile-links li{margin-bottom:5px;padding:0 3px}.about.page .profile-links li a img{width:24px;height:24px;border-radius:5px;vertical-align:bottom}
+.about.page img#selfshot{max-height:170px;border-radius:15px}

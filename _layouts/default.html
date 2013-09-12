@@ -30,9 +30,12 @@
       <div class="container-narrow">
         <header class="page-header row">
           <div class="col-xs-12">
-            <div id="logo" class="pull-left">
-              <a href="/"><img src="/images/logo.png" alt="Rodrigo Dumont"></a>
-            </div>
+            <h1 id="logo" class="pull-left">
+              <a href="/">
+                <img src="/images/logo_small.png" alt="Rodrigo Dumont" class="visible-xs">
+                <img src="/images/logo.png" alt="Rodrigo Dumont" class="hidden-xs">
+              </a>
+            </h1>
             <nav class="pull-right">
               <ul class="social-icons list-inline text-right">
                 <li><a href="https://github.com/rdumont"><img src="/images/github.png" alt=""></a></li>
@@ -43,7 +46,7 @@
               <ul class="list-inline text-right">
                 {% for link in site.navigation %}
                   {% assign current = nil %}
-                  {% if page.url == link.url or page.group == link.group %}
+                  {% if page.url == link.url or (page.group != nil and page.group == link.group %}
                     {% assign current = 'current' %}
                   {% endif %}
 
