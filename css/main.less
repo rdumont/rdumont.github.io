@@ -91,17 +91,17 @@ ul.social-icons {
 	}
 }
 
+h2 {
+	font-family: 'Economica', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 36px;
+	color: @bold-color;
+}
+
 .post, .page {
 	header {
 		margin-bottom: 3em;
-		
-		h2 {
-			font-family: 'Economica', sans-serif;
-			font-weight: bold;
-			text-transform: uppercase;
-			font-size: 36px;
-			color: @bold-color;
-		}
 
 		.meta {
 			color: #8E908C;
@@ -141,6 +141,63 @@ ul.social-icons {
     			color: gold;
     		}
     	}
+	}
+}
+
+body > footer {
+	color: #8E908C;
+	font-style: italic;
+	margin: 2em auto;
+}
+
+
+/**********/
+/** Home **/
+/**********/
+.home {
+	p.description {
+		margin-top: 1em;
+		margin-bottom: 2em;
+		font-size: 120%;
+		font-family: serif;
+		font-style: italic;
+	}
+
+	li.post-listing {
+
+		h3 {
+			margin-bottom: 0;
+		}
+
+		a.post-title {
+			font-family: 'Economica', sans-serif;
+			font-weight: bold;
+			text-transform: uppercase;
+			font-size: 26px;
+			color: @bold-color;
+
+			&:hover {
+				color: @main-color;
+				text-decoration: none;
+			}
+		}
+
+		.post-date {
+			color: #8E908C;
+			font-style: italic;
+			font-size: 15px;
+		}
+
+		p.post-tags {
+			font-size: 80%;
+			
+			.post-tag {
+				background-color: #fafafa;
+				color: #8e908c;
+				padding: 1px 2px;
+				border-radius: 5px;
+			}
+		}
 	}
 }
 

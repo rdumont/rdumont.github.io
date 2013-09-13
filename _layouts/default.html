@@ -38,10 +38,10 @@
             </h1>
             <nav class="pull-right">
               <ul class="social-icons list-inline text-right">
-                <li><a href="https://github.com/rdumont"><img src="/images/github.png" alt=""></a></li>
-                <li><a href="https://twitter.com/rlsdumont"><img src="/images/twitter.png" alt=""></a></a></li>
-                <li><a href="https://linkedin.com/in/rlsdumont"><img src="/images/linkedin.png" alt=""></a></a></li>
-                <li><a href="{{ site.production_url }}/feed/atom.xml"><img src="/images/feed.png" alt=""></a></a></a></li>
+                <li><a href="https://github.com/rdumont" target="_blank"><img src="/images/github.png" alt=""></a></li>
+                <li><a href="https://twitter.com/rlsdumont" target="_blank"><img src="/images/twitter.png" alt=""></a></a></li>
+                <li><a href="https://linkedin.com/in/rlsdumont" target="_blank"><img src="/images/linkedin.png" alt=""></a></a></li>
+                <li><a href="{{ site.production_url }}/feed/atom.xml" target="_blank"><img src="/images/feed.png" alt=""></a></a></a></li>
               </ul>
               <ul class="list-inline text-right">
                 {% for link in site.navigation %}
@@ -62,8 +62,11 @@
         {{ content }}
       </div>
 
-      <footer class="row">
-        
+      <footer class="row text-center">
+        <p>
+          &copy; Copyright {{ site.time | date:"%Y" }}, <a href="http://rodrigodumont.com/about">Rodrigo Dumont</a>.
+          Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>.
+        </p>
       </footer>
 
       <script>
