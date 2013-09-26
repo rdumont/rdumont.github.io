@@ -1,6 +1,7 @@
 .container-narrow{margin:0 auto;max-width:940px;padding-right:15px;padding-left:15px}.container-narrow img{max-width:100%}
 body{font-size:15px}
 a{color:#428bca;-webkit-transition:color .2s linear;-moz-transition:color .2s linear;-ms-transition:color .2s linear;-o-transition:color .2s linear;transition:color .2s linear}a:hover{color:#e57d00;text-decoration:none}
+.centered{float:none;margin:0 auto}
 header.page-header{border:none}
 header h1#logo{margin:0}
 header #logo a{-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;-ms-transition:opacity .2s linear;-o-transition:opacity .2s linear;transition:opacity .2s linear}header #logo a:hover{opacity:.7}

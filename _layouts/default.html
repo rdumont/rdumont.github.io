@@ -26,7 +26,6 @@
 
     </head>
     <body>
-
       <div class="container-narrow">
         <header class="page-header row">
           <div class="col-xs-12">
@@ -69,6 +68,7 @@
         </p>
       </footer>
 
+      {% unless site.source contains 'c:/' %}
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -78,5 +78,6 @@
         ga('create', 'UA-42693325-1', 'rodrigodumont.com');
         ga('send', 'pageview');
       </script>
+      {% endunless %}
     </body>
 </html>
