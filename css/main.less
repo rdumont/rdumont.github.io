@@ -3,11 +3,11 @@
 @bold-color: #736458;
 
 .opacity-transition() {
-	-webkit-transition: opacity .2s ease-in-out;
-	-moz-transition: opacity .2s ease-in-out;
-	-ms-transition: opacity .2s ease-in-out;
-	-o-transition: opacity .2s ease-in-out;
-	transition: opacity .2s ease-in-out;
+	-webkit-transition: opacity .2s linear;
+	-moz-transition: opacity .2s linear;
+	-ms-transition: opacity .2s linear;
+	-o-transition: opacity .2s linear;
+	transition: opacity .2s linear;
 
 	&:hover {
 		opacity: .7;
@@ -31,11 +31,11 @@ body {
 
 a {
 	color: @secondary-color;
-	-webkit-transition: color .2s ease-in-out;
-	-moz-transition: color .2s ease-in-out;
-	-ms-transition: color .2s ease-in-out;
-	-o-transition: color .2s ease-in-out;
-	transition: color .2s ease-in-out;
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
 
 	&:hover {
 		color: @main-color;
@@ -124,6 +124,11 @@ h2 {
 }
 
 .post {
+	article {
+		a, a:hover {
+			text-decoration: underline;
+		}
+	}
 	footer {
 		background-color: @secondary-color;
 		background-image: url("../images/share.png");
@@ -174,11 +179,10 @@ body > footer {
 			font-weight: bold;
 			text-transform: uppercase;
 			font-size: 26px;
-			color: @bold-color;
+			color: @main-color;
 
 			&:hover {
-				color: @main-color;
-				text-decoration: none;
+				text-decoration: underline;
 			}
 		}
 
@@ -190,7 +194,7 @@ body > footer {
 
 		p.post-tags {
 			font-size: 80%;
-			
+
 			.post-tag {
 				background-color: #fafafa;
 				color: #8e908c;
