@@ -3,7 +3,6 @@ name: Rodrigo Dumont
 markdown: redcarpet
 pygments: true
 safe: true
-timezone: America/Sao_Paulo
 permalink: pretty
 exclude:
   - "*.less"

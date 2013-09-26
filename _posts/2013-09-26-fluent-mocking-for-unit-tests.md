@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: moq unit-tests csharp tdd
-date: 2013-09-26 00:15:00
+date: 2013-09-26 00:15:00 -03:00
 title: Fluent mocking for unit tests
 ---
 
