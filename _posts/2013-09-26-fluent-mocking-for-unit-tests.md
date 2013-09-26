@@ -7,6 +7,8 @@ title: Fluent mocking for unit tests
 
 If you seriously write **unit tests in C#**, then I'm sure that you have sometimes come to a point where there are just too many, or perhaps too complex mocks in your code. When that happens, you can almost feel yourself giving in to the dark side and using an actual implementation just to avoid all the mess of **setting up mocks**.
 
+<!--more-->
+
 Let's say you had to do something like the following. Maybe you would even choose to write a mock class instead of using our good friend **[Moq](https://github.com/Moq/moq4 "Moq")**.
 
 ```csharp
