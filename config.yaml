@@ -1,4 +1,5 @@
 baseurl: 'http://rodrigodumont.com/'
+publishDir: docs
 title: Rodrigo Dumont
 theme: ghostwriter
 languageCode: en-US
