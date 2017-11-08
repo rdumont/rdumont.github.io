@@ -1,0 +1,39 @@
+name: Projects
+
+author:
+  - icon: fa fa-flask
+    title: Assist Dog
+    date: Jul 2017
+    link: https://github.com/rdumont/assistdog
+    description: Assist Dog is a Go utility library for working with Gherkin specs.
+
+  - icon: fa fa-cog
+    title: NuGet Content Genetrator
+    date: Oct 2015
+    link: https://github.com/rdumont/NuGetContentGenerator
+    description: This tool helps you in creating NuGet packages by automating the process of converting *.cs into *.cs.pp files. In the process, it creates the desired replacement tokens that can be used by NuGet when adding content files.
+
+  - icon: fa fa-code
+    title: Dately
+    date: Mar 2012
+    link: https://github.com/rdumont/Dately
+    description: A .NET library for parsing and writing dates as text.
+
+contributor:
+  - icon: fa fa-code
+    title: DotLiquid
+    date: 2013 - 2015
+    link: https://github.com/dotliquid/dotliquid
+    description: DotLiquid is a .NET port of the popular Ruby Liquid templating language. It is a separate project that aims to retain the same template syntax as the original, while using .NET coding conventions where possible.
+
+  - icon: fa fa-flask
+    title: SpecFlow
+    date: Jan 2012
+    link: https://github.com/techtalk/SpecFlow
+    description: SpecFlow is a pragmatic BDD solution for .NET. It uses the Gherkin specification language and integrates to many development tools.
+  
+  - icon: fa fa-code
+    title: SquishIt
+    date: Nov 2011
+    link: https://github.com/jetheredge/SquishIt
+    description: SquishIt is an asset optimization library for .net web applications. It handles combining and minifying css and javascript assets through creation of bundles.

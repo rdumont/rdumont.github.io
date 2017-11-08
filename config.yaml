@@ -1,0 +1,36 @@
+baseURL: http://rodrigodumont.com/
+languageCode: en-US
+title: Rodrigo Dumont
+theme: hugo-sustain
+
+disquisShortname: rdumont
+
+permalinks:
+  page: '/:year/:month/:day/:slug'
+
+params:
+  avatar: profile.png
+  author: Rodrigo Dumont
+  description: Lalala
+
+  social:
+    Github: rdumont
+    Email: rlsdumont@gmail.com
+    Twitter: rlsdumont
+    LinkedIn: rlsdumont
+    Stackoverflow: rdumont
+
+  hobbies:
+    name: bla
+    source: lala
+
+menu:
+  main:
+  - name: blog
+    weight: 100
+    identifier: blog
+    url: /blog
+  - name: projects
+    identifier: projects
+    weight: 200
+    url: /projects
