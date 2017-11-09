@@ -26,6 +26,30 @@
   </url>
   
   <url>
+    <loc>http://rodrigodumont.com/tags/csharp/</loc>
+    <lastmod>2014-10-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rodrigodumont.com/tags/git/</loc>
+    <lastmod>2013-10-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rodrigodumont.com/tags/git-tortoise-git-windows/</loc>
+    <lastmod>2013-12-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rodrigodumont.com/tags/moq/</loc>
+    <lastmod>2013-09-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://rodrigodumont.com/page/</loc>
     <priority>0</priority>
   </url>
@@ -48,6 +72,19 @@
   
   <url>
     <loc>http://rodrigodumont.com/tags/</loc>
+    <lastmod>2014-10-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rodrigodumont.com/tags/tdd/</loc>
+    <lastmod>2013-09-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://rodrigodumont.com/tags/unit-tests/</loc>
+    <lastmod>2013-09-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

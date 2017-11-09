@@ -7,9 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2017 Rodrigo Dumont</copyright>
+    <lastBuildDate>Wed, 29 Oct 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://rodrigodumont.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Csharp</title>
+      <link>http://rodrigodumont.com/tags/csharp/</link>
+      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://rodrigodumont.com/tags/git/</link>
+      <pubDate>Mon, 21 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git Tortoise Git Windows</title>
+      <link>http://rodrigodumont.com/tags/git-tortoise-git-windows/</link>
+      <pubDate>Tue, 17 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/git-tortoise-git-windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Moq</title>
+      <link>http://rodrigodumont.com/tags/moq/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/moq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tdd</title>
+      <link>http://rodrigodumont.com/tags/tdd/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unit Tests</title>
+      <link>http://rodrigodumont.com/tags/unit-tests/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/unit-tests/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
