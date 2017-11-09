@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Rodrigo Dumont</title>
+    <link>http://rodrigodumont.com/page/</link>
+    <description>Recent content in Pages on Rodrigo Dumont</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2017 Rodrigo Dumont</copyright>
+    
+	<atom:link href="http://rodrigodumont.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://rodrigodumont.com/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/page/about/</guid>
+      <description>You&amp;rsquo;re tearing up my heart when I&amp;rsquo;m with you&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>http://rodrigodumont.com/page/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/page/projects/</guid>
+      <description>You&amp;rsquo;re tearing up my heart when I&amp;rsquo;m with you&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

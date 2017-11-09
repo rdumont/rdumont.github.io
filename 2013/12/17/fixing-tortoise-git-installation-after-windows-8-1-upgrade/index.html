@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Fixing Tortoise Git installation after Windows 8.1 upgrade &middot; Rodrigo Dumont</title>
+        <meta name="description" content="So, after upgrading from Windows 8 to Windows 8.1, everything seemed smooth for a while. Until I realized that Tortoise Git had stopped working. It just would&rsquo;t open, not through any shortcut or method. The worse is, when I tried to uninstall or repair it, I just got an error message saying:
+There is a problem with this Windows Installer package. A DLL required for this install to complete could not be run.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.30-DEV" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Fixing Tortoise Git installation after Windows 8.1 upgrade">
+<meta property="og:description" content="So, after upgrading from Windows 8 to Windows 8.1, everything seemed smooth for a while. Until I realized that Tortoise Git had stopped working. It just would&rsquo;t open, not through any shortcut or method. The worse is, when I tried to uninstall or repair it, I just got an error message saying:
+There is a problem with this Windows Installer package. A DLL required for this install to complete could not be run.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://rodrigodumont.com/2013/12/17/fixing-tortoise-git-installation-after-windows-8-1-upgrade/">
+        <link rel="stylesheet" href="http://rodrigodumont.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'XXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Rodrigo Dumont" href="http://rodrigodumont.com/">Rodrigo Dumont</a>
+                            </h1>
+                        
+                        <a class="button-square" href="http://rodrigodumont.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/rlsdumont">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Gitlab" title="Gitlab" href="https://gitlab.com/rdumont">
+                                <i class="fa fa-gitlab"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/rdumont">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="https://stackoverflow.com/users/186760/rdumont">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/rdumont">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:hi@rodrigodumont.com">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Fixing Tortoise Git installation after Windows 8.1 upgrade</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2013-12-17" itemprop="datePublished">Tue, Dec 17, 2013</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/rdumont" itemprop="url" rel="author">Rodrigo Dumont</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>So, after upgrading from Windows 8 to Windows 8.1, everything seemed smooth for a while. Until I realized that <strong>Tortoise Git had stopped working</strong>. It just would&rsquo;t open, not through any shortcut or method. The worse is, when I tried to uninstall or repair it, I just got an error message saying:</p>
+
+<pre><code>There is a problem with this Windows Installer package. A DLL required for this install to complete could not be run. Contact your support personnel or package vendor.
+</code></pre>
+
+<!-- more -->
+
+<p>I must admit this gave me a real hard time, but after a couple of hours I finally got it working. To save you some time, here is what I did:</p>
+
+<ol>
+<li>Open <code>regedit.exe</code>.</li>
+<li>Find (<code>Ctrl+F</code>) every occurrence of &ldquo;Tortoise&rdquo; in the registry and delete it. I checked &ldquo;Look at&rdquo; Keys, Values and Data.</li>
+<li>Delete your TortoiseGit installation folder. Mine was <code>C:\Program Files\TortoiseGit</code>. Note that you might not be able to remove some files because they are in use, but it&rsquo;s alright to keep those.</li>
+<li>Run the TortoiseGit installer again</li>
+</ol>
+
+<p>After these steps, everything went back to normal. There might have been an an easier way to get around this, but this is how I achieved it. Hope this saves you some time!</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Fixing%20Tortoise%20Git%20installation%20after%20Windows%208.1%20upgrade&url=http%3a%2f%2frodrigodumont.com%2f2013%2f12%2f17%2ffixing-tortoise-git-installation-after-windows-8-1-upgrade%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frodrigodumont.com%2f2013%2f12%2f17%2ffixing-tortoise-git-installation-after-windows-8-1-upgrade%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2frodrigodumont.com%2f2013%2f12%2f17%2ffixing-tortoise-git-installation-after-windows-8-1-upgrade%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=Fixing%20Tortoise%20Git%20installation%20after%20Windows%208.1%20upgrade&url=http%3a%2f%2frodrigodumont.com%2f2013%2f12%2f17%2ffixing-tortoise-git-installation-after-windows-8-1-upgrade%2f&summary="
+               onclick="window.open(this.href, 'linkedin-share', 'width=554,height=481');return false;">
+               <i class="fa fa-linkedin"></i>
+               <span class="hidden">LinkedIn</span>
+            </a>
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Rodrigo Dumont" href="http://rodrigodumont.com/">Rodrigo Dumont</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2014 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="http://rodrigodumont.com/js/jquery-1.11.3.min.js"></script>
+        <script src="http://rodrigodumont.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="http://rodrigodumont.com/js/scripts.js"></script>
+    </body>
+</html>
+
