@@ -1,0 +1,48 @@
+baseurl: 'http://rodrigodumont.com/'
+publishDir: docs
+title: Rodrigo Dumont
+theme: ghostwriter
+languageCode: en-US
+copyright: Copyright © 2017 Rodrigo Dumont
+googleAnalytics: XXX
+disquisShortname: XXX
+
+author:
+  name: Rodrigo Dumont
+  profile: https://github.com/rdumont
+
+taxonomies:
+  tag: tags
+
+params:
+  intro: true
+  headline: Rodrigo Dumont
+  description: My description
+  github: https://github.com/rdumont
+  gitlab: https://gitlab.com/rdumont
+  linkedin: https://linkedin.com/in/rdumont
+  twitter: https://twitter.com/rlsdumont
+  stackoverflow: https://stackoverflow.com/users/186760/rdumont
+  email: hi@rodrigodumont.com
+  opengraph: true
+  shareTwitter: true
+  shareFacebook: true
+  shareLinkedIn: true
+  dateFormat: "Mon, Jan 2, 2006"
+  highlightJsUrl: ""
+  highlightJsLocalUrl: ""
+
+permalinks:
+  post: "/:year/:month/:day/:filename"
+
+menu:
+  main:
+    - name: Blog
+      url: /
+      weight: 1
+    # - name: Projects
+    #   url: /page/projects
+    #   weight: 2
+    # - name: About
+    #   url: /page/about
+    #   weight: 3
