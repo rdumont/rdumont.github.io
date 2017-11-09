@@ -4,7 +4,7 @@ theme: ghostwriter
 languageCode: en-US
 copyright: Copyright © 2017 Rodrigo Dumont
 googleAnalytics: UA-42693325-1
-disquisShortname: rodrigodumont
+disqusShortname: rodrigodumont
 
 author:
   name: Rodrigo Dumont
