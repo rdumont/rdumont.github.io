@@ -3,6 +3,7 @@ author: "Rodrigo Dumont"
 date: 2013-09-26
 linktitle: Fluent mocking for unit tests
 title: Fluent mocking for unit tests
+tags: [ moq, unit-tests, csharp, tdd ]
 highlight: true
 ---
 

@@ -22,3 +22,9 @@ git push origin master
 
 # Come Back up to the Project Root
 cd ..
+
+if [ $# -eq 1  ]
+then
+  git add .
+  git commit -m "$msg"
+fi

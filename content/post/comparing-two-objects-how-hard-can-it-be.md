@@ -3,6 +3,7 @@ author: "Rodrigo Dumont"
 date: 2014-10-29
 linktitle: "Comparing two objects: how hard can it be?"
 title: "Comparing two objects: how hard can it be?"
+tags: [ csharp ]
 highlight: true
 ---
 

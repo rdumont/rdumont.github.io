@@ -3,6 +3,7 @@ author: "Rodrigo Dumont"
 date: 2013-10-21
 linktitle: Give your git graph some bubbles
 title: Give your git graph some bubbles
+tags: [ git ]
 highlight: true
 ---
 

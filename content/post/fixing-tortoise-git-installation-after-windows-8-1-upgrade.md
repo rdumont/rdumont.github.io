@@ -3,6 +3,7 @@ author: "Rodrigo Dumont"
 date: 2013-12-17
 linktitle: Fixing Tortoise Git installation after Windows 8.1 upgrade
 title: Fixing Tortoise Git installation after Windows 8.1 upgrade
+tags: [ git tortoise-git windows ]
 highlight: true
 ---
 
