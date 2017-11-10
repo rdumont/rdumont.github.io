@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Rodrigo Dumont</title>
+    <link>http://rodrigodumont.com/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Rodrigo Dumont</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2017 Rodrigo Dumont</copyright>
+    <lastBuildDate>Fri, 10 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://rodrigodumont.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Profile Go micro-services in Kubernetes with pprof</title>
+      <link>http://rodrigodumont.com/2017/11/10/profile-go-micro-services-in-kubernetes-with-pprof/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/2017/11/10/profile-go-micro-services-in-kubernetes-with-pprof/</guid>
+      <description>One of Go&amp;rsquo;s most life-saving features is its native profiling tool, pprof. It enables you to instrument your code in order to discover problems related to performance, concurrency and memory usage.
+I&amp;rsquo;ve read a few articles on how to set up the instrumentation, run the tool and analyze its results, but the examples usually work on your machine. Using it on code that is deployed on a Kubernetes cluster takes a few more steps, and this is how I did it.</description>
+    </item>
+    
+  </channel>
+</rss>

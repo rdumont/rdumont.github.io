@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Profile Go micro-services in Kubernetes with pprof &middot; Rodrigo Dumont</title>
+        <meta name="description" content="One of Go&rsquo;s most life-saving features is its native profiling tool, pprof. It enables you to instrument your code in order to discover problems related to performance, concurrency and memory usage.
+I&rsquo;ve read a few articles on how to set up the instrumentation, run the tool and analyze its results, but the examples usually work on your machine. Using it on code that is deployed on a Kubernetes cluster takes a few more steps, and this is how I did it.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.30-DEV" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Profile Go micro-services in Kubernetes with pprof">
+<meta property="og:description" content="One of Go&rsquo;s most life-saving features is its native profiling tool, pprof. It enables you to instrument your code in order to discover problems related to performance, concurrency and memory usage.
+I&rsquo;ve read a few articles on how to set up the instrumentation, run the tool and analyze its results, but the examples usually work on your machine. Using it on code that is deployed on a Kubernetes cluster takes a few more steps, and this is how I did it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://rodrigodumont.com/2017/11/10/profile-go-micro-services-in-kubernetes-with-pprof/">
+        <link rel="stylesheet" href="http://rodrigodumont.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42693325-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Rodrigo Dumont" href="http://rodrigodumont.com/">Rodrigo Dumont</a>
+                            </h1>
+                        
+                        <a class="button-square" href="http://rodrigodumont.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/rlsdumont">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Gitlab" title="Gitlab" href="https://gitlab.com/rdumont">
+                                <i class="fa fa-gitlab"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/rdumont">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="https://stackoverflow.com/users/186760/rdumont">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/rdumont">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:hi@rodrigodumont.com">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Profile Go micro-services in Kubernetes with pprof</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2017-11-10" itemprop="datePublished">Fri, Nov 10, 2017</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/rdumont" itemprop="url" rel="author">Rodrigo Dumont</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>One of Go&rsquo;s most life-saving features is its native profiling tool, <code>pprof</code>. It enables you to <strong>instrument your code</strong> in order to discover problems related to <strong>performance, concurrency and memory usage</strong>.</p>
+
+<p>I&rsquo;ve read a few articles on how to set up the instrumentation, run the tool and analyze its results, but the examples usually work on your machine. Using it on code that is <strong>deployed on a Kubernetes cluster</strong> takes a few more steps, and this is how I did it.</p>
+
+<h2 id="instrumentation">Instrumentation</h2>
+
+<p>The first thing is to reference <code>net/http/pprof</code>, usually in my <code>main.go</code> file:</p>
+
+<pre><code class="language-golang">package main
+
+import (
+    &quot;net/http&quot;
+    _ &quot;net/http/pprof&quot;
+)
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, serveHTTP)
+    http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+
+func serveHTTP(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte(&quot;Hello, world&quot;))
+}
+</code></pre>
+
+<p>The above code, by importing <code>net/http/pprof</code>, registers a few profiling endpoints to the default HTTP mux. Unfortunately that is probably not what most of us use in production. So instead, I set up the router to handle every request to <code>/debug/*</code> by redirecting it to the default mux. Below are a few options, depending on the router.</p>
+
+<h3 id="http-serve-mux">HTTP serve mux</h3>
+
+<pre><code class="language-go">func main() {
+    r := http.NewServeMux()
+    r.HandleFunc(&quot;/&quot;, serveHTTP)
+
+    r.Handle(&quot;/debug/&quot;, http.DefaultServeMux)
+    http.ListenAndServe(&quot;:8080&quot;, r)
+}
+</code></pre>
+
+<h3 id="gorilla-mux-https-github-com-gorilla-mux"><a href="https://github.com/gorilla/mux">gorilla/mux</a></h3>
+
+<pre><code class="language-go">func main() {
+    r := mux.NewRouter()
+    r.HandleFunc(&quot;/&quot;, serveHTTP)
+
+    r.Handle(&quot;/debug/&quot;, http.DefaultServeMux)
+    http.ListenAndServe(&quot;:8080&quot;, r)
+}
+</code></pre>
+
+<h3 id="gin-https-github-com-gin-gonic-gin"><a href="https://github.com/gin-gonic/gin">Gin</a></h3>
+
+<pre><code class="language-go">func main() {
+	r := gin.New()
+	r.GET(&quot;/&quot;, serveHTTP)
+
+	r.Any(&quot;/debug/*path&quot;, gin.WrapH(http.DefaultServeMux))
+
+	http.ListenAndServe(&quot;:8080&quot;, r)
+}
+</code></pre>
+
+<p>The same concept could be used for other routers.</p>
+
+<h2 id="web-interface">Web interface</h2>
+
+<p>This first method of profiling gives us a web page, accessible through a browser, with a snapshot of some key items about the current Go program. In order to access it, I&rsquo;m going to <strong>forward a port</strong><sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> from the pod to my machine.</p>
+
+<ol>
+<li><code>kubectl get pods</code> provides me with a list of all pods in order to find the desired name</li>
+<li><code>kubectl port-forward &lt;pod_name&gt; &lt;local_port&gt;:&lt;container_port&gt;</code> allows me to access <code>local_port</code> being forwarded to the pod&rsquo;s <code>container_port</code></li>
+</ol>
+
+<p>Now I&rsquo;m able to go to <code>http://localhost:&lt;local_port&gt;/debug/pprof/</code> on my web browser to see something that looks like the following:</p>
+
+<pre><code>/debug/pprof/
+
+profiles:
+0	block
+4	goroutine
+2	heap
+0	mutex
+7	threadcreate
+
+full goroutine stack dump
+</code></pre>
+
+<p>By clicking any of the profiles, you&rsquo;re taken to a detailed view of each of them. This is nice to get a quick overview of what&rsquo;s going on and might show you, for instance, deadlocks and growing goroutine count. But for the most powerful visualization I like to use <code>go tool pprof instead</code>.</p>
+
+<h2 id="command-line-interface">Command line interface</h2>
+
+<p>The purpose of this article is to show you how to put together everything that you might need to profile in production inside of a Kubernetes cluster, so I won&rsquo;t go into too much detail about <code>pprof</code> itself. The official documentation and release post provide plenty of examples of how to use the tool. <sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup> <sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup></p>
+
+<ol>
+<li><p>Retrieve the binary (just skip to the next step if you already have it)</p>
+
+<pre><code>kubectl cp &lt;pod_name&gt;:&lt;binary_path_in_pod&gt; &lt;local_binary_path&gt;
+</code></pre></li>
+
+<li><p>Run <code>pprof</code></p>
+
+<pre><code># Get a 30 second CPU profile
+go tool pprof &lt;local_binary_path&gt; 'http://localhost:&lt;local_port&gt;/debug/pprof/profile'
+
+# Get a 60 second CPU profile
+go tool pprof &lt;local_binary_path&gt; 'http://localhost:&lt;local_port&gt;/debug/pprof/profile?seconds=60'
+
+# Get a heap profile
+go tool pprof &lt;local_binary_path&gt; 'http://localhost:&lt;local_port&gt;/debug/pprof/heap'
+</code></pre></li>
+</ol>
+
+<p>After running the command, it will go into an interactive mode with various options. I recommend you type <code>help</code> to find out what they are and to see the tool&rsquo;s online reference.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/">Use Port Forwarding to Access Applications in a Cluster</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2"><a href="https://golang.org/src/net/http/pprof/pprof.go"><code>net/http/pprof</code> Godoc</a>
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3"><a href="https://blog.golang.org/2011/06/profiling-go-programs.html">Profiling Go Programs</a>. 24 June 2011.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/go/">go</a>, 
+            
+                <a href="/tags/pprof/">pprof</a>, 
+            
+                <a href="/tags/kubernetes/">kubernetes</a>, 
+            
+                <a href="/tags/gin/">gin</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Profile%20Go%20micro-services%20in%20Kubernetes%20with%20pprof&url=http%3a%2f%2frodrigodumont.com%2f2017%2f11%2f10%2fprofile-go-micro-services-in-kubernetes-with-pprof%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2frodrigodumont.com%2f2017%2f11%2f10%2fprofile-go-micro-services-in-kubernetes-with-pprof%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2frodrigodumont.com%2f2017%2f11%2f10%2fprofile-go-micro-services-in-kubernetes-with-pprof%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=Profile%20Go%20micro-services%20in%20Kubernetes%20with%20pprof&url=http%3a%2f%2frodrigodumont.com%2f2017%2f11%2f10%2fprofile-go-micro-services-in-kubernetes-with-pprof%2f&summary="
+               onclick="window.open(this.href, 'linkedin-share', 'width=554,height=481');return false;">
+               <i class="fa fa-linkedin"></i>
+               <span class="hidden">LinkedIn</span>
+            </a>
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "rodrigodumont" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Rodrigo Dumont" href="http://rodrigodumont.com/">Rodrigo Dumont</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="http://rodrigodumont.com/js/jquery-1.11.3.min.js"></script>
+        <script src="http://rodrigodumont.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        
+        <script src="http://rodrigodumont.com/js/scripts.js"></script>
+    </body>
+</html>
+

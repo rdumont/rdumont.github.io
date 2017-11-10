@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Gin</title>
+      <link>http://rodrigodumont.com/tags/gin/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/gin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Git</title>
       <link>http://rodrigodumont.com/tags/git/</link>
       <pubDate>Mon, 21 Oct 2013 00:00:00 +0000</pubDate>
@@ -40,11 +49,38 @@
     </item>
     
     <item>
+      <title>Go</title>
+      <link>http://rodrigodumont.com/tags/go/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://rodrigodumont.com/tags/kubernetes/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Moq</title>
       <link>http://rodrigodumont.com/tags/moq/</link>
       <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
       
       <guid>http://rodrigodumont.com/tags/moq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pprof</title>
+      <link>http://rodrigodumont.com/tags/pprof/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://rodrigodumont.com/tags/pprof/</guid>
       <description></description>
     </item>
     
