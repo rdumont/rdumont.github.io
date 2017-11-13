@@ -39,9 +39,9 @@ menu:
     - name: Blog
       url: /
       weight: 1
-    # - name: Projects
-    #   url: /page/projects
-    #   weight: 2
+    - name: Projects
+      url: /page/projects
+      weight: 2
     # - name: About
     #   url: /page/about
     #   weight: 3
