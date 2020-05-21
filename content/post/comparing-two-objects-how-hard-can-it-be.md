@@ -13,7 +13,7 @@ This week I had to implement a thing that saves settings for, well, something. E
 
 The issue was that, since the action of saving a value created a log for auditing, **I didn't want to actually save it if there were no changes**. That is, when the value sent is the same as the already persisted one. **Easy!**—I say—**there should be something in the framework that does this for me**. As it turns out, there isn't a safe and loose equality comparer for the object type.
 
-Enough said! There is no better way of showing what I wanted than with a test suite—for which I used [NUnit](http://nunit.org/). First, these are the cases in which I want the values to be **considered equal** ([or see the Gist](https://gist.github.com/rdumont/d0392668185337ae707a#file-settingsvalueequalitycomparertests-cs-L8-L29)):
+Enough said! There is no better way of showing what I wanted than with a test suite—for which I used [NUnit](https://nunit.org/). First, these are the cases in which I want the values to be **considered equal** ([or see the Gist](https://gist.github.com/rdumont/d0392668185337ae707a#file-settingsvalueequalitycomparertests-cs-L8-L29)):
 
 ```csharp
 private readonly object[][] successCases =  
