@@ -2,3 +2,6 @@
 	path = public
 	url = git@github.com:rdumont/rdumont.github.io.git
 	branch = master
+[submodule "themes/ghostwriter"]
+	path = themes/ghostwriter
+	url = https://github.com/jbub/ghostwriter
