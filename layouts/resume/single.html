@@ -1,0 +1,117 @@
+{{ partial "header.html" . }}
+
+{{ $style := resources.Get "sass/resume.scss" | resources.ToCSS | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+{{ $siteParams := .Site.Params }}
+
+<hr class="separator">
+
+{{ with .Params.cv }}
+<article class="resume">
+  <div class="body">
+    <div class="main">
+      <h1 class="name">{{ .name }}</h1>
+      <div class="summary">
+        {{ .summary | markdownify }}
+      </div>
+    </div>
+
+    <div class="side contact">
+      {{ if .details }}
+      {{ if .details.website }}
+      <div class="social-link">
+        <i class="fa fa-link"></i>
+        <a href="https://{{ .details.website }}" target="_blank">{{ .details.website }}</a>
+      </div>
+      {{ end }}
+      {{ if .details.github }}
+      <div class="social-link">
+        <i class="fa fa-github"></i>
+        <a href="https://github.com/{{ .details.github }}" target="_blank">@{{ .details.github }}</a>
+      </div>
+      {{ end }}
+      {{ if .details.linkedin }}
+      <div class="social-link">
+        <i class="fa fa-linkedin"></i>
+        <a href="https://linkedin.com/in/{{ .details.linkedin }}" target="_blank">
+          @{{ .details.linkedin }}
+        </a>
+      </div>
+      {{ end }}
+      {{ if .details.location }}
+      <div class="social-link">
+        <i class="fa fa-map-marker"></i>
+        {{ .details.location }}
+      </div>
+      {{ end }}
+      {{ end }}
+      {{ if $siteParams.showContact }}
+      <div class="social-link"><i class="fa fa-phone"></i> {{ $siteParams.contactPhone }}</div>
+      <div class="social-link"><i class="fa fa-envelope-square"></i> {{ $siteParams.contactEmail }}</div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="main">
+      <h2><i class="fa fa-briefcase"></i> <span class="hl">Experience</span></h2>
+      {{ range .jobHistory }}
+      <div class="job-item">
+        <div class="header">
+          <h3>{{ .title }}</h3>
+          <span class="company">
+            at {{ .company }}
+            {{ if .site }}
+            (<a href="https://{{ .site }}" target="__blank">{{ .site }}</a>)
+            {{ end }}
+          </span>
+        </div>
+        <div class="duration">{{ .duration }}</div>
+        <div class="description">{{ .description | markdownify }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="side">
+      <div class="skills">
+        <h2><i class="fa fa-code"></i> <span class="hl">Skills</span></h2>
+        {{ range .skills }}
+        <div class="category">
+          <h3>{{ .title }}</h3>
+          <div class="description">
+            {{ .description | markdownify }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="education">
+        <h2><i class="fa fa-graduation-cap"></i> <span class="hl">Education</span></h2>
+        {{ range .education }}
+        <div class="item">
+          <h3>{{ .title }}</h3>
+          <div class="school">{{ .school }}</div>
+          <div class="duration">{{ .duration }}</div>
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="languages">
+        <h2><i class="fa fa-globe"></i> <span class="hl">Languages</span></h2>
+        {{ range .languages }}
+        <div class="item">
+          <span class="name">{{ .name }}</span>
+          <span class="level">({{ .level }})</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}
+
+<hr class="separator">
+
+
+{{ partial "footer.html" . }}

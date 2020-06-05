@@ -2,9 +2,10 @@ baseurl: 'https://rodrigodumont.com/'
 title: Rodrigo Dumont
 theme: ghostwriter
 languageCode: en-US
-copyright: Copyright Rodrigo Dumont © 2020 
+copyright: Copyright Rodrigo Dumont © 2020
 googleAnalytics: UA-42693325-1
 disqusShortname: rodrigodumont
+assetDir: dyn-assets
 
 author:
   name: Rodrigo Dumont
@@ -30,6 +31,9 @@ params:
   dateFormat: "Mon, Jan 2, 2006"
   highlightJsUrl: ""
   highlightJsLocalUrl: ""
+  showContact: false
+  contactEmail: ""
+  contactPhone: ""
 
 permalinks:
   post: "/:year/:month/:day/:filename"
@@ -42,9 +46,6 @@ menu:
     - name: Projects
       url: /page/projects
       weight: 2
-    # - name: About
-    #   url: /page/about
-    #   weight: 3
 
 markup:
   goldmark:
