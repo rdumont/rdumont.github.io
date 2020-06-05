@@ -16,9 +16,9 @@ cv:
     linkedin: rlsdumont
     location: São Paulo, Brazil
   summary: |
-    Senior Software Engineer with strong focus on development processes, best practices and automated tests.
+    Senior Software Engineer with a strong focus on development processes, best practices, and automated tests.
 
-    My job is to multiply impact of software engineering through code and mentoring.
+    My job is to multiply the impact of software engineering through code and mentoring.
   jobHistory:
     - company: Escale
       title: Principal Software Engineer
@@ -28,7 +28,7 @@ cv:
         * Led software architecture for six squads
         * Designed a product catalog API for centralizing information about essential services in Brazil (health, telecom, financial and education)
         * Implemented multi-brand identity and access management service for both internal and external users
-        * Created open source feature toggle framework ([@escaletech/tog](https://github.com/escaletech/tog))
+        * Created an open source feature toggle framework ([@escaletech/tog](https://github.com/escaletech/tog))
         * AWS, Kubernetes, Go, Node.js, PostgreSQL, MongoDB, Redis, Datadog, CircleCI
     - company: Spotz
       site: spotz.co
@@ -37,14 +37,14 @@ cv:
       description: |
         * Built marketplace to let people rent out their properties and rooms as event spaces
         * Implemented from scratch to production both front-end and back-end
-        * Integrated payment gateway using marketplace model
+        * Integrated payment gateway using a marketplace model
         * GCP, Kubernetes, Go, React, MongoDB
     - company: HelloMD
       site: hellomd.com
       title: Back-end Software Engineer
       duration: July — November 2017
       description: |
-        * Re-engineered dated platform as micro-services, preparing for global launch
+        * Re-engineered dated platform as micro-services, preparing for the global launch
         * Used RabbitMQ as event broker for async communications, enabling reliable and performant user notifications, data indexing and transactional e-mails
         * GCP, Kubernetes, Go, CircleCI, MongoDB, ElasticSearch
     - company: VTEX
@@ -52,7 +52,7 @@ cv:
       title: Software Engineer
       duration: December 2012 — June 2017
       description: |
-        * Created a PAAS that allowed store owners to install new features to their websites in one click, from new payment or shipping providers, to visual components ([apps.vtex.com](https://apps.vtex.com/))
+        * Created a PAAS that allowed store owners to install new features to their websites in one click, from new payment or shipping providers to visual components ([apps.vtex.com](https://apps.vtex.com/))
         * Built a secure CMS for checkout pages, handling hundreds to thousands of requests per second
         * Led adoption of async APIs in every team's micro-services, drastically reducing latency and infrastructure costs, with libraries and guidance
         * AWS, C#, ASP.NET Web API, Kubernetes, Go, DynamoDB, Redis
