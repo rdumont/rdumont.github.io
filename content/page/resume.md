@@ -52,7 +52,7 @@ cv:
       title: Software Engineer
       duration: December 2012 — June 2017
       description: |
-        * Created a PAAS that allowed store owners to install new features to their websites in one click, from new payment or shipping providers to visual components ([apps.vtex.com](https://apps.vtex.com/))
+        * Created a PAAS that allowed store owners to install new features to their websites in one click, from new payment or shipping providers to visual components ([vtex.io/docs](https://vtex.io/docs))
         * Built a secure CMS for checkout pages, handling hundreds to thousands of requests per second
         * Led adoption of async APIs in every team's micro-services, drastically reducing latency and infrastructure costs, with libraries and guidance
         * AWS, C#, ASP.NET Web API, Kubernetes, Go, DynamoDB, Redis
